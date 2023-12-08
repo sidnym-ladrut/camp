@@ -1,0 +1,9 @@
+:~  title+'camp'
+    info+'A minimal reproduction of Gall as an Urbit agent'
+    color+0x55.5555
+    version+[0 0 1]
+    website+'https://docs.urbit.org/courses/urbit-academy/ca'
+    license+'MIT'
+    base+'camp'
+    site+/apps/camp
+==

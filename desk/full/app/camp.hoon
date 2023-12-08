@@ -1,0 +1,1 @@
+../../bare/app/camp.hoon
