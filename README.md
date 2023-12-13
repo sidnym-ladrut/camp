@@ -18,7 +18,7 @@ mkdir -p full/lib/ full/mar full/sur
 ln -sr ../LICENSE.txt full/license.txt
 git clone --depth 1 https://github.com/urbit/yard yar
 cp yar/desk/lib/{dbug*,default-agent*,skeleton*,docket*} full/lib/
-cp yar/desk/mar/{bill*,docket*,hoon*,kelvin*,mime*,noun*,ship*,txt*} full/mar/
+cp yar/desk/mar/{atom*,bill*,docket*,hoon*,kelvin*,mime*,noun*,ship*,txt*} full/mar/
 cp yar/desk/sur/docket* full/sur/
 ```
 
@@ -26,6 +26,29 @@ cp yar/desk/sur/docket* full/sur/
 
 ```bash
 ./durploy desk -w zod camp ./desk/full/
+```
+
+## Test ##
+
+### Trivial ###
+
+```
+:camp &camp-action [%simp %init ~]
+.^((set term) %gx /=camp=/scamps/noun)
+.^(noun %gx /=camp=/scamp/simp/noun)
+:camp &camp-action [%simp %poke noun+!>(~)]
+```
+
+### Simple ###
+
+```
+:camp &camp-action [%taly %init ~]
+:camp &camp-action [%taly %poke atom+!>(%a)]
+.^(@ud %gx /=camp=/scamp/simp/a/noun)
+:camp &camp-action [%taly %poke atom+!>(%a)]
+:camp &camp-action [%taly %poke atom+!>(%b)]
+.^(@ud %gx /=camp=/scamp/simp/a/noun)
+.^(@ud %gx /=camp=/scamp/simp/b/noun)
 ```
 
 
