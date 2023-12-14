@@ -1,26 +1,19 @@
-::  /-  camp
-::  ^-  scamp:camp
+/-  camp
+^-  scamp:camp
 =|  tallies=(map term @ud)
-|%
+|_  =bowl:gall
++*  this  .
 ++  on-init
-  ^-  (quip card:agent:gall _..on-init)
-  :-  ~
-  %=    ..on-init
-      tallies
-    *(map term @ud)
-  ==
+  ^-  (quip card:agent:gall _this)
+  `this(tallies *(map term @ud))
 ++  on-poke
   |=  [=mark =vase]
-  ^-  (quip card:agent:gall _..on-init)
+  ^-  (quip card:agent:gall _this)
   ?+    mark  ~|(bad-poke/mark !!)
       %atom
     =+  !<(taly=term vase)
     =/  curr-taly=@ud  (~(gut by tallies) taly 0)
-    :-  ~
-    %=    ..on-init
-        tallies
-      (~(put by tallies) taly +(curr-taly))
-    ==
+    `this(tallies (~(put by tallies) taly +(curr-taly)))
   ==
 ++  on-peek
   |=  path=(pole knot)

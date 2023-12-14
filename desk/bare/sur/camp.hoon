@@ -1,7 +1,7 @@
 |%
 ++  scamp
   $_  ^|
-  |%
+  |_  bowl:gall
   ++  on-init
     *(quip card:agent:gall _^|(..on-init))
   ++  on-poke
@@ -11,6 +11,7 @@
     |~  path
     *(unit (unit cage))
   --
+::
 +$  action
   (pair term update)
 ::

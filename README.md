@@ -44,11 +44,21 @@ cp yar/desk/sur/docket* full/sur/
 ```
 :camp &camp-action [%taly %init ~]
 :camp &camp-action [%taly %poke atom+!>(%a)]
-.^(@ud %gx /=camp=/scamp/simp/a/noun)
+.^(@ud %gx /=camp=/scamp/taly/a/noun)
 :camp &camp-action [%taly %poke atom+!>(%a)]
 :camp &camp-action [%taly %poke atom+!>(%b)]
-.^(@ud %gx /=camp=/scamp/simp/a/noun)
-.^(@ud %gx /=camp=/scamp/simp/b/noun)
+.^(@ud %gx /=camp=/scamp/taly/a/noun)
+.^(@ud %gx /=camp=/scamp/taly/b/noun)
+```
+
+### Complex ###
+
+```
+:camp &camp-action [%poxy %init ~]
+.^((set term) %gx /=camp=/scamps/noun)
+:camp &camp-action [%poxy %poke atom+!>(%a)]
+.^(@ud %gx /=camp=/scamp/poxy/a/noun)
+.^(@ud %gx /=camp=/scamp/taly/a/noun)
 ```
 
 

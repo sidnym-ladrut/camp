@@ -46,10 +46,10 @@
     =+  !<(=action:camp vase)
     ?+    update=q.action  ~|(bad-poke/q.action !!)
         [%init ~]
-      =+  scamp-text=.^(@t %cx (scamp-path p.action bowl))
-      =+  scamp-hoon=(slap !>(..zuse) (ream scamp-text))
-      =+  !<(scamp-core=scamp:camp scamp-hoon)
-      =/  scamp-init=(quip card scamp:camp)  on-init:scamp-core
+      =+  scamp-vase=.^(^vase %ca (scamp-path p.action bowl))
+      =+  !<(scamp-core=scamp:camp scamp-vase)
+      =/  scamp-init=(quip card scamp:camp)
+        ~(on-init scamp-core bowl)
       :-  -.scamp-init
       this(scamps (~(put by scamps) p.action +.scamp-init))
     ::
@@ -58,7 +58,8 @@
       ::  TODO: Coerce the vase data using the provided mark
       =/  scamp-core=(unit scamp:camp)  (~(get by scamps) p.action)
       ?>  ?=(^ scamp-core)
-      =/  scamp-poke=(quip card scamp:camp)  (on-poke:u.scamp-core poke.update)
+      =/  scamp-poke=(quip card scamp:camp)
+        (~(on-poke u.scamp-core bowl) poke.update)
       :-  -.scamp-poke
       this(scamps (~(put by scamps) p.action +.scamp-poke))
     ==
@@ -71,10 +72,13 @@
       [%x %scamps ~]
     ``noun+!>(~(key by scamps))
   ::
+      [%u %scamp scamp=term ~]
+    ``atom+!>((~(has by scamps) scamp.path))
+  ::
       [%x %scamp scamp=term path=*]
-    =/  scamp=(unit scamp:camp)  (~(get by scamps) scamp.path)
-    ?~  scamp  [~ ~]
-    (on-peek:u.scamp path.path)
+    =/  scamp-core=(unit scamp:camp)  (~(get by scamps) scamp.path)
+    ?~  scamp-core  [~ ~]
+    (~(on-peek u.scamp-core bowl) path.path)
   ==
 ++  on-agent  on-agent:def
 ++  on-arvo  on-arvo:def
